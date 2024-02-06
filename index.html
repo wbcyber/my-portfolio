@@ -108,7 +108,7 @@ fruition.
 
     <!-- Skills section -->
     <section class="skills" id="skills">
-        <h2 class="skill-header">My Top Skills</h2>
+        <h2 class="skill-header">Top Skills</h2>
   
         <div class="skills-wrapper">
           <div class="first-set animate__animated animate__pulse">
@@ -158,7 +158,7 @@ fruition.
 
     <!-- Projects section -->
     <section class="projects" id="projects">
-        <h2 class="projects-title">Some of my Recent Projects</h2>
+        <h2 class="projects-title">Recent Projects</h2>
         <div class="projects-container">
           <div class="project-container project-card">
             <img
@@ -215,7 +215,7 @@ fruition.
         <h2>Get In Touch With Me</h2>
         <div class="contact-form-container">
           <div class="contact-form">
-            <form action="https://formspree.io/f/xyylngw" method="POST">
+            <form onsubmit="sendEmail(); reset(); return false;">
               <div class="form-control">
                 <label for="name">Name</label>
                 <input
@@ -331,5 +331,25 @@ fruition.
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+      function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "ekpenyongdaniel444@gmail.com",
+            Password : "673CDBC3EC2650B45C4A2E96827A22262939",
+            To : 'ekpenyongdaniel444@gmail.com',
+            From : "dj184535@gmail.com",
+            Subject : "MY PORTFOLIO CONTACT FORM",
+            Body : "Name:" + document.getElementById("name").value + "<br> Email:" + document.getElementById("email").value + "<br> Message:" + document.getElementById("message").value
+        }).then(
+        message => alert("message sent succesfully")
+        );
+
+      }
+      
+    </script>
+
   </body>
 </html>
